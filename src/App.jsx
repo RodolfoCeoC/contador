@@ -5,10 +5,19 @@ function App() {
   const [cuenta, setCuenta] = useState(0);
 
 
-
   const handleClick = () => {
     setCuenta(cuenta + 1)
-    //console.log("Diste click");
+   //Aumentamos la cuenta de 1 en 1
+  }
+
+  const handleDec = () => {
+    setCuenta(cuenta - 1)
+   //Disminuimos la cuenta de 1 en 1
+  }
+
+  const handleClear = () => {
+    setCuenta(0)
+  //Reiniciamos el contador a 0
   }
 
   return (
@@ -20,10 +29,24 @@ function App() {
  <div style={{display: "flex",
   justifyContent: "flex-end",
   marginRight: "5px",
+  justifyContent:"center",
+  alignItems: "center",
   }}>
- <button type="button" className="btn btn-primary"
- onClick={handleClick}>+1</button>
+
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-danger"
+  onClick={handleClick}>Up</button>
+
+  <button type="button" class="btn btn-warning"
+  onClick={handleClear}>Clear</button>
+
+  <button type="button" class="btn btn-success"
+  onClick={handleDec}>Down</button>
+
+</div>
+
  </div>
+
     </div>
   );
 }
