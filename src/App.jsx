@@ -3,21 +3,29 @@ import { useState } from "react";
 function App() {
 
   const [cuenta, setCuenta] = useState(0);
-
+  const [paso, setpaso] = useState(1);
 
   const handleClick = () => {
-    setCuenta(cuenta + 1)
+    setCuenta(cuenta + paso)
    //Aumentamos la cuenta de 1 en 1
   }
 
   const handleDec = () => {
-    setCuenta(cuenta - 1)
+    setCuenta(cuenta - paso)
    //Disminuimos la cuenta de 1 en 1
   }
 
   const handleClear = () => {
     setCuenta(0)
+    setpaso(1)
   //Reiniciamos el contador a 0
+  }
+
+  const handleInputChange = (event) => {
+    setpaso(Number(event.target.value))
+    if (isNaN(event.target.value))
+    return;
+   
   }
 
   return (
@@ -32,6 +40,13 @@ function App() {
   justifyContent:"center",
   alignItems: "center",
   }}>
+
+    <label>
+      Paso
+
+      <input id="paso" name="paso" type="text" onChange={handleInputChange} value={paso} style={{marginLeft:"5px", width:"60px"}} />
+    
+    </label>
 
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
   <button type="button" class="btn btn-danger"
